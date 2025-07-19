@@ -11,11 +11,11 @@ type MemberProfile = {
   color: string;
 };
 
-const rose: MemberProfile = {
-  name: "rose",
-  age: 28,
-  color: "red",
-};
+// const rose: MemberProfile = {
+//   name: "rose",
+//   age: 28,
+//   color: "red",
+// };
 
 // 3-6 Array型とTuple型
 let songs: string[]; // これはArray型
@@ -68,3 +68,32 @@ const greetWorld: ReturnVoid = () => {
 }
 const result = greetWorld();
 console.log(result);
+
+// 4-1-2
+interface Member {
+  readonly name: string;
+  age?: number;
+  color: string;
+  speak(word: string): void;
+}
+
+const rose: Member = {
+  name: "rose",
+  age: 30,
+  color: "red",
+  speak: (word) => console.log(word),
+}
+
+rose.speak("お前の一番奪うから。");
+
+
+// インデックスシグニチャ
+// ＝値代入時にキーも名前をつけられる型指定
+interface StprFamilyMember {
+  [memberName: string]: string;
+}
+
+const stprFamily: StprFamilyMember = {};
+stprFamily.shion = "shion";
+stprFamily.jel = "jel";
+
