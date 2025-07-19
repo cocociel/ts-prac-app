@@ -41,3 +41,30 @@ let shion: MemberObj = {
   personName: "shion",
   personColor: "purple",
 }
+
+// 3-11 関数と型
+// function addNumbers(a: number, b: number): number {
+//   return a + b;
+// }
+
+function printMessage(message?: string): void {
+  if (message) {
+    console.log(message);
+  } else {
+    console.log("No message provided.");
+  }
+}
+printMessage("Hello World!");
+printMessage();
+
+// const addNumbers: (a: number, b: number) => number = (a, b) => a + b;
+
+type AddFunction = (a: number, b: number) => number;
+const addNumbers: AddFunction = (a, b) => a + b;
+
+type ReturnVoid = () => void;
+const greetWorld: ReturnVoid = () => {
+  return "Hello world!";
+}
+const result = greetWorld();
+console.log(result);
