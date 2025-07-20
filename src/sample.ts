@@ -102,7 +102,8 @@ class Member {
 
   constructor(
     public readonly name: string,
-    public color: string
+    public color: string,
+    private _songsCount: number,
   ) { }
 
   greet(greeting: string): void {
@@ -110,8 +111,28 @@ class Member {
       `${greeting}, my name is ${this.name} and member color is ${this.color}.`
     );
   }
+
+  get getSongsCount(): number {
+    console.log("曲数の取得");
+    return this._songsCount;
+  }
+
+  set setSongsCount(count: number) {
+    if (count < 0) {
+      throw new Error(`不正な値です。0以上の値を入力してください。: ${count}`);
+    }
+    console.log("曲数の設定");
+    this._songsCount = count;
+  }
 }
 
-const rose = new Member("rose", "red");
+const rose = new Member("rose", "red", 3);
 rose.greet("Hi");
+
+console.log(rose.getSongsCount);
+rose.setSongsCount = 5;
+rose.setSongsCount = -1;
+
+
+
 
