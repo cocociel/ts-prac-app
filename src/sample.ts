@@ -99,13 +99,11 @@
 
 // 4-2-1 クラスの基本
 class Member {
-  name: string;
-  color: string;
 
-  constructor(name: string, color: string) {
-    this.name = name;
-    this.color = color;
-  }
+  constructor(
+    public readonly name: string,
+    public color: string
+  ) { }
 
   greet(greeting: string): void {
     console.log(
